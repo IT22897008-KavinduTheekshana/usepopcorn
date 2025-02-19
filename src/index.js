@@ -9,6 +9,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <StarRating maxRating={10} />
+    <StarRating defaultRating={3} />
   </React.StrictMode>
 );
