@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const containerStyle = {
   display: "flex",
@@ -10,12 +11,20 @@ const starContainerStyle = {
   display: "flex",
 };
 
+StarRating.propTypes = {
+  maxRating: PropTypes.number,
+  defaultRating: PropTypes.number,
+  color: PropTypes.string,
+  size: PropTypes.number,
+  messages: PropTypes.array,
+};
+
 export default function StarRating({
   maxRating = 5,
   color = "#fcc419",
   size = 48,
   className = "",
-  massages = [],
+  messages = [],
   defaultRating = 0,
   onSetRating,
 }) {
@@ -50,8 +59,8 @@ export default function StarRating({
         ))}
       </div>
       <p style={textStyle}>
-        {massages.length === maxRating
-          ? [massages[tempRating ? tempRating - 1 : rating - 1]]
+        {messages.length === maxRating
+          ? [messages[tempRating ? tempRating - 1 : rating - 1]]
           : tempRating || rating || ""}
       </p>
     </div>
